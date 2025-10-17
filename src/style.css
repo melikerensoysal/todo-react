@@ -1,4 +1,3 @@
-/* Reset */
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +5,6 @@
   font-family: "Poppins", sans-serif;
 }
 
-/* Background */
 body {
   background: linear-gradient(135deg, #ece9e6, #ffffff);
   min-height: 100vh;
@@ -15,7 +13,6 @@ body {
   justify-content: center;
 }
 
-/* Main app container */
 .app {
   background-color: #fff;
   padding: 40px 50px;
@@ -30,14 +27,12 @@ body {
   transform: translateY(-4px);
 }
 
-/* Title */
 .app h1 {
   margin-bottom: 20px;
   font-size: 28px;
   color: #222;
 }
 
-/* Todo form */
 .todo-form {
   display: flex;
   justify-content: center;
@@ -74,7 +69,6 @@ body {
   background: linear-gradient(135deg, #0056b3, #0096c7);
 }
 
-/* Todo list */
 .todo-list {
   list-style: none;
   margin-top: 10px;
@@ -97,14 +91,12 @@ body {
   transform: scale(1.02);
 }
 
-/* Completed todos */
 .todo-item.completed span {
   text-decoration: line-through;
   color: #aaa;
   opacity: 0.7;
 }
 
-/* Buttons inside todos */
 .todo-item button {
   border: none;
   background: none;
@@ -112,13 +104,13 @@ body {
   color: #888;
   font-size: 16px;
   transition: color 0.2s;
+   margin-left: 10px;
 }
 
 .todo-item button:hover {
   color: #ff4d4d;
 }
 
-/* Filter buttons */
 .filter-buttons {
   margin-top: 15px;
   display: flex;
