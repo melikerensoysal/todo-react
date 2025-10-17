@@ -154,3 +154,32 @@ body {
   border: 1px solid #ddd;
   font-size: 15px;
 }
+
+.filters {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+  gap: 10px;
+}
+
+.filters button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+  color: #333;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filters button:hover {
+  background-color: #d1e7ff;
+  transform: scale(1.05);
+}
+
+.filters button.active {
+  background-color: #4dabf7;
+  color: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
