@@ -10,6 +10,7 @@ function App() {
   });
 
   const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("All"); // "All", "Active", "Completed"
 
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
@@ -35,9 +36,16 @@ function App() {
     setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)));
   };
 
-  const filteredTodos = todos.filter((todo) =>
-    todo.text.toLowerCase().includes(search.toLowerCase())
-  );
+  const filteredTodos = todos
+    .filter((todo) =>
+      todo.text.toLowerCase().includes(search.toLowerCase())
+    )
+    .filter((todo) => {
+      if (filter === "All") return true;
+      if (filter === "Active") return !todo.completed;
+      if (filter === "Completed") return todo.completed;
+      return true;
+    });
 
   return (
     <div className="app">
@@ -49,7 +57,30 @@ function App() {
         onChange={(e) => setSearch(e.target.value)}
         className="search"
       />
+
       <TodoForm addTodo={addTodo} />
+
+      <div className="filters">
+        <button
+          onClick={() => setFilter("All")}
+          className={filter === "All" ? "active" : ""}
+        >
+          All
+        </button>
+        <button
+          onClick={() => setFilter("Active")}
+          className={filter === "Active" ? "active" : ""}
+        >
+          Active
+        </button>
+        <button
+          onClick={() => setFilter("Completed")}
+          className={filter === "Completed" ? "active" : ""}
+        >
+          Completed
+        </button>
+      </div>
+
       <TodoList
         todos={filteredTodos}
         toggleTodo={toggleTodo}
